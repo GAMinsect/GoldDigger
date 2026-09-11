@@ -8,6 +8,7 @@ GoldDigger is a real-time web application built with Node.js that simulates buyi
 
 ## 📽️ Demo Video
 
+[DemoVideo.webm](https://github.com/user-attachments/assets/0445fc5c-9864-4220-ae0b-6cdcd39974fd)
 
 ## 🛠️ Tech Stack & Architecture
 
