@@ -7,7 +7,7 @@ GoldDigger is a real-time web application built with Node.js that simulates buyi
 ---
 
 ## 📽️ Demo Video
-
+From the demo we can see that new data isn't available from the start, this is to simulate the delay that occurs when first joining a stream of data.
 [DemoVideo.webm](https://github.com/user-attachments/assets/0445fc5c-9864-4220-ae0b-6cdcd39974fd)
 
 ## 🛠️ Tech Stack & Architecture
