@@ -8,12 +8,34 @@ const connectionStatus = document.getElementById('connection-status')
 
 const newPrice = new EventSource('/price-stream'); 
 
-investBtn.addEventListener('click', (event) => {
+
+investBtn.addEventListener('click', async (event) => {
     console.log('CLICKED')
 
-    investmentSummary.textContent = `You just bought ${(investmentAmount.value/priceDisplay.innerText).toFixed(8)} ounces (ozt) for £${investmentAmount.value}. \n You will receive documentation shortly.`
+    investmentSummary.textContent = `You just bought 
+        ${(investmentAmount.value/priceDisplay.innerText).toFixed(8)} 
+        ounces (ozt) for £${investmentAmount.value}. \n You will receive documentation shortly.`
     event.preventDefault() // The Button shoudn't reset the page
     confirmation.showModal()
+    
+    // Send POST request to the server to save the transaction
+    try {
+        await fetch('/save-transaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                uuid: crypto.randomUUID(),
+                amount: investmentAmount.value,
+                price: parseFloat(priceDisplay.innerText),
+                ounces: (investmentAmount.value/priceDisplay.innerText).toFixed(8),
+                time: new Date().toISOString()
+            })
+        })
+    } catch (error) {
+        console.error('Error saving transaction:', error);
+    }
 })
 
 closeBtn.addEventListener('click', (event) => {
