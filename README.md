@@ -1,11 +1,13 @@
 
-```markdown
 # ⛏️ GoldDigger
 
 GoldDigger is a real-time web application built with Node.js that simulates buying gold commodities. It streams simulated price fluctuations using Server-Sent Events (SSE)
 
 
 ---
+
+## 📽️ Demo Video
+
 
 ## 🛠️ Tech Stack & Architecture
 
@@ -80,4 +82,4 @@ Server running at: `http://localhost:8000`
 
 ```
 
-```
+
