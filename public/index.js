@@ -12,6 +12,11 @@ const newPrice = new EventSource('/price-stream');
 investBtn.addEventListener('click', async (event) => {
     console.log('CLICKED')
 
+    if(investmentAmount.value <= 0 || investmentAmount.value === '') {
+        alert('Please enter a valid investment amount greater than 0.')
+        return
+    }
+
     investmentSummary.textContent = `You just bought 
         ${(investmentAmount.value/priceDisplay.innerText).toFixed(8)} 
         ounces (ozt) for £${investmentAmount.value}. \n You will receive documentation shortly.`
@@ -47,7 +52,10 @@ newPrice.onmessage = (event) => {
     connectionStatus.innerText = 'Live Price 🟢'
     const data = JSON.parse(event.data)
     priceDisplay.innerText = `${data.price.toFixed(2)}`
-    
+    investBtn.style.backgroundColor = 'var(--gold)'
+    investBtn.style.backgroundImage = 'linear-gradient(45deg, var(--gold) 50%, var(--dark-gold))'
+    investBtn.disabled = false
+    investBtn.classList.add('active');
 }
 
 newPrice.onerror = (event) => {

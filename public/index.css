@@ -123,8 +123,7 @@ input::placeholder {
 
 .invest-btn {
     padding: .6em .5em;
-    background-color: var(--gold);
-    background-image: linear-gradient(45deg, var(--gold) 50%, var(--dark-gold));
+    background-color: grey;
     font-weight: 400;
     font-size: 1.7em;
     color: var(--brown);
@@ -133,7 +132,14 @@ input::placeholder {
     border: 2px solid var(--dark-gold);
 }
 
-.invest-btn:hover {
+/* Active state enabled via JavaScript */
+.invest-active {
+    background-color: var(--gold);
+    background-image: linear-gradient(45deg, var(--gold) 50%, var(--dark-gold));
+}
+
+/* Hover state applied automatically when active */
+.invest-btn.active:hover {
     background-color: var(--brown);
     background-image: linear-gradient(45deg, var(--dark-gold), var(--gold) 50%);
 }
